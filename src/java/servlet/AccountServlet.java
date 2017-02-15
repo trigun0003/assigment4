@@ -16,8 +16,11 @@
 
 package servlet;
 
+import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import model.Account;
 
 /**
@@ -26,6 +29,33 @@ import model.Account;
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
     
+    Account accnt = new Account();
     
+    protected void doGet(HttpServletResponse response, HttpServletRequest request) throws IOException
+    {
+        response.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
+        response.getWriter().write(String.valueOf(accnt.getBalance()));
+    }
+    
+    protected void doPost(HttpServletResponse response, HttpServletRequest request) throws IOException
+    {
+        if(request.getParameter("withdraw")!= null)
+        {
+            double withdraw = Double.parseDouble(request.getParameter("withdraw"));
+            accnt.withdraw(withdraw);
+        }
+        else if(request.getParameter("deposit")!= null)
+        {
+            double deposit = Double.parseDouble(request.getParameter("deposit"));
+            accnt.deposit(deposit);
+        }
+        else
+        {
+            accnt.close();
+        }
+        
+    }
     
 }
