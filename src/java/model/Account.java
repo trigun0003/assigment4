@@ -58,10 +58,10 @@ public class Account {
      * Deducts all cash from the total balance of the account
      * @param status
      */
-    public void close(String status) {
+    public void close() {
         
-        if(status.equals("true")){
+        
             currentBalance = 0;
-        }
+        
     }
 }
