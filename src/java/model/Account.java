@@ -28,10 +28,10 @@ public class Account {
      * @return - the balance
      */
     
-     double currentBalance;
+     double Balance;
     
     public double getBalance() {
-        return currentBalance;
+        return Balance;
     }
     
     /**
@@ -40,7 +40,7 @@ public class Account {
      */
     public void deposit(double cash) {
         
-        currentBalance = currentBalance + cash;
+        Balance = Balance + cash;
         
     }
     
@@ -50,18 +50,15 @@ public class Account {
      */
     public void withdraw(double cash) {
         
-        currentBalance = currentBalance - cash;
-        System.out.println(currentBalance);
+        Balance = Balance-cash;
+       
     }
     
     /**
      * Deducts all cash from the total balance of the account
      * @param status
      */
-    public void close(String status) {
-        
-        if(status.equals("true")){
-            currentBalance = 0;
-        }
+     public void close() {
+          Balance = 0;
     }
 }
