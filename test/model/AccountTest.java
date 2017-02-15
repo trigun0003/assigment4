@@ -63,7 +63,7 @@ public class AccountTest {
         double dep = 500.0;
         Account instance = new Account();
         instance.deposit(dep);
-        instance.close();;
+        instance.close();
         double expResult = 0.0;
         double result = instance.getBalance();
         assertEquals(expResult, result, 0.0);
