@@ -60,10 +60,10 @@ public class AccountTest {
     @Test
     public void testGetBalanceIsZeroAfterDeposit500ThenClose() {
 
-        double deposit = 500.0;
+        double dep = 500.0;
         Account instance = new Account();
-        instance.deposit(deposit);
-        instance.close();;
+        instance.deposit(dep);
+        instance.close();
         double expResult = 0.0;
         double result = instance.getBalance();
         assertEquals(expResult, result, 0.0);
