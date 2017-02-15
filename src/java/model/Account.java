@@ -28,11 +28,10 @@ public class Account {
      * @return - the balance
      */
     
-     private double Balance = 0;
-     private Boolean active = true; 
+     double currentBalance;
     
     public double getBalance() {
-        return Balance;
+        return currentBalance;
     }
     
     /**
@@ -41,7 +40,7 @@ public class Account {
      */
     public void deposit(double cash) {
         
-        Balance += cash;
+        currentBalance = currentBalance + cash;
         
     }
     
@@ -51,14 +50,18 @@ public class Account {
      */
     public void withdraw(double cash) {
         
-        Balance -= cash;
+        currentBalance = currentBalance - cash;
+        System.out.println(currentBalance);
     }
     
     /**
      * Deducts all cash from the total balance of the account
+     * @param status
      */
-    public void close() {
+    public void close(String status) {
         
-        active = false;
+        if(status.equals("true")){
+            currentBalance = 0;
+        }
     }
 }
